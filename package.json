@@ -1,7 +1,7 @@
 {
   "name": "my-new-react-app",
   "version": "0.1.0",
-  "homepage": "https://devhub-co-in.github.io/react-gh-pages",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
