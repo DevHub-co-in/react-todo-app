@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Todo from "./Todo";
 import axios from "axios";
+import style from './Todo.module.css'
 
 function TodoContainer() {
   const [todo, setTodo] = useState("");
@@ -30,16 +31,20 @@ function TodoContainer() {
   }, []);
 
   return (
-    <div>
+    <div className={style.mainContainer} >
+      <div className={style.container}>
       <h1>Todo list app</h1>
+      <div className={style.todo_container}>
       <input
         onChange={(e) => setTodo(e.target.value)}
         value={todo}
         type="text"
         placeholder="Enter todo"
+        className={style.todo_input}
       />
-      <button onClick={handleSubmit}>Add</button>
-      <div className="list-container">
+      <button className={style.add_button} onClick={handleSubmit}>Add</button>
+      </div>
+      <div className={style.list_container}>
         {todos?.map((todo) => {
           return (
             <Todo
@@ -52,12 +57,15 @@ function TodoContainer() {
           );
         })}
       </div>
-      <div>
+      </div>
+      <div className={style.details}>
         <p>
           Built by{" "}
-          <a target="_blank" href="https://varunkumawat.live">
-            Varun
+          <span className={style.cta}>
+          <a target="_blank" rel="noreferrer" href="https://varunkumawat.live">
+            Devhub
           </a>
+          </span>
         </p>
       </div>
     </div>
