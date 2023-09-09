@@ -1,5 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import style from "./Todo.module.css";
+
+const ICON_SIZE = 28;
 
 function Todo({ content, id, setTodos, isCompleted }) {
   const [isChecked, setIsChecked] = useState(isCompleted);
@@ -48,16 +52,26 @@ function Todo({ content, id, setTodos, isCompleted }) {
   };
 
   return (
-    <div>
-      <input
-        type="checkbox"
-        value={isChecked}
-        checked={isChecked}
-        onChange={handleCheck}
-      />
-      {content}
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
+    <div className={style.todo_box}>
+      <div className={style.todo}>
+        <label className={style.input_control}>
+          <input
+            type="checkbox"
+            value={isChecked}
+            checked={isChecked}
+            onChange={handleCheck}
+          />
+        </label>
+        <div className={style.content}>{content}</div>
+      </div>
+      <div className={style.todo_button}>
+        <span onClick={handleDelete}>
+          <AiFillDelete size={ICON_SIZE} />
+        </span>
+        <span onClick={handleEdit}>
+          <AiFillEdit size={ICON_SIZE} />
+        </span>
+      </div>
     </div>
   );
 }
