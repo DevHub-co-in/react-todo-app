@@ -27,7 +27,6 @@ function Todo({ content, id, setTodos, isCompleted }) {
     axios
       .delete(`${process.env.REACT_APP_SERVER_ROUTE}/todo/${id}`)
       .then((res) => {
-        console.log(res);
         setTodos(res.data);
       })
       .catch((err) => {
